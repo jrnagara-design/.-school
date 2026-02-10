@@ -1,0 +1,10 @@
+# Clone your repo locally
+git clone https://github.com/jafaradai/online.git
+
+# Move your updated files into this folder
+# Stage and commit changes
+git add .
+git commit -m "Updated project files"
+
+# Push to GitHub
+git push origin main
