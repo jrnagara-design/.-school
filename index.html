@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JR NAGARA ONLINE TEST /UTME PRACTICE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css" rel="stylesheet">
+    <style type="text/tailwindcss">
+        @layer theme {
+            :root {
+                --primary-color: #059669; /* Emerald 600 */
+                --secondary-color: #064e3b; /* Emerald 900 */
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col items-center justify-center font-sans">
+    <div class="max-w-4xl w-full px-6 py-12 text-center">
+        <div class="mb-8 flex justify-center">
+             <div class="w-24 h-24 rounded-lg flex items-center justify-center shadow-lg overflow-hidden bg-white">
+                <img id="portal-logo" src="https://app.trickle.so/storage/public/images/usr_1a4d0bc2f0000001/49d92f14-334d-4dff-a9ad-044794e4b6cd.jpeg" alt="Logo" class="w-full h-full object-cover" />
+             </div>
+        </div>
+        <h1 class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight uppercase">
+            <span id="portal-title">JR NAGARA ONLINE TEST</span>
+            <span class="block text-[var(--primary-color)]">UTME PRACTICE</span>
+        </h1>
+        <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+            Professional CBT Platform with AI-Powered Monitoring and Real-time Results.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <a href="admin.html" class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 flex flex-col items-center">
+                <div class="w-14 h-14 bg-blue-50 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">
+                    <div class="icon-shield text-2xl text-blue-600"></div>
+                </div>
+                <h2 class="text-xl font-bold text-gray-900 mb-2">Admin Portal</h2>
+                <p class="text-sm text-gray-500">Manage tests, students, and live monitoring.</p>
+            </a>
+
+            <a href="register.html" class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 flex flex-col items-center">
+                <div class="w-14 h-14 bg-amber-50 rounded-full flex items-center justify-center mb-4 group-hover:bg-amber-100 transition-colors">
+                    <div class="icon-user-plus text-2xl text-amber-600"></div>
+                </div>
+                <h2 class="text-xl font-bold text-gray-900 mb-2">Register</h2>
+                <p class="text-sm text-gray-500">New candidate registration and slip printing.</p>
+            </a>
+
+            <a href="student.html" class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 flex flex-col items-center">
+                 <div class="w-14 h-14 bg-emerald-50 rounded-full flex items-center justify-center mb-4 group-hover:bg-emerald-100 transition-colors">
+                    <div class="icon-user text-2xl text-emerald-600"></div>
+                </div>
+                <h2 class="text-xl font-bold text-gray-900 mb-2">Student Portal</h2>
+                <p class="text-sm text-gray-500">Take examinations with AI verification.</p>
+            </a>
+
+            <a href="result.html" class="group bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100 flex flex-col items-center">
+                 <div class="w-14 h-14 bg-purple-50 rounded-full flex items-center justify-center mb-4 group-hover:bg-purple-100 transition-colors">
+                    <div class="icon-file-text text-2xl text-purple-600"></div>
+                </div>
+                <h2 class="text-xl font-bold text-gray-900 mb-2">Check Results</h2>
+                <p class="text-sm text-gray-500">View and print your performance slips.</p>
+            </a>
+        </div>
+        
+        <div class="mt-16 text-sm text-gray-400">
+            &copy; 2026 JR NAGARA ONLINE TEST. All rights reserved. No remixing or copying allowed.
+        </div>
+    </div>
+    
+    <!-- Inline script to fetch settings if available -->
+    <script>
+        // Simple trick to load settings without React
+        (async function() {
+            // Need the Storage util but it depends on React usually?
+            // Actually, storage.js defines window.JRStorage, but it uses trickleListObjects which is global
+            // We need to wait for storage.js to load. 
+            // BUT storage.js is not included here yet! Let's include it.
+            // Wait, storage.js depends on trickleX functions which are injected.
+        })();
+    </script>
+</body>
+</html>
