@@ -1,0 +1,62 @@
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+// Connect to your Supabase
+const supabaseUrl = 'https://mpezezekhmbzggsckjdg.supabase.co'
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1wZXplemVraG1iemdnc2NramRnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA4MDM4NzMsImV4cCI6MjA4NjM3OTg3M30.Tf1s_aJ3CFi7HQpCHsSVySvjHb5FamZaxAyGOZNMKH0'
+
+export const supabase = createClient(supabaseUrl, supabaseKey)
+
+// Admin Login
+export function adminLogin(username, password) {
+    if(username === 'admin' && password === '123456'){
+        localStorage.setItem('admin', 'true')
+        window.location.href = 'admin-dashboard.html'
+    } else {
+        alert('Invalid admin credentials')
+    }
+}
+
+// Add student
+export async function addStudent(reg, name, className, pass) {
+    const { data, error } = await supabase
+        .from('students')
+        .insert([{registration_number: reg, full_name: name, class: className, password: pass, results: ''}])
+    if(error) alert(error.message)
+    else alert('Student added!')
+}
+
+// Get all students (Admin dashboard)
+export async function getStudents() {
+    const { data, error } = await supabase.from('students').select('*')
+    if(error) alert(error.message)
+    else return data
+}
+
+// Update results
+export async function updateResults(reg, newResults) {
+    const { data, error } = await supabase.from('students')
+        .update({results: newResults})
+        .eq('registration_number', reg)
+    if(error) alert(error.message)
+    else alert('Results updated!')
+}
+
+// Student Login
+export async function studentLogin(reg, pass) {
+    const { data, error } = await supabase
+        .from('students')
+        .select('*')
+        .eq('registration_number', reg)
+        .eq('password', pass)
+        .single()
+    if(error || !data) alert('Invalid registration number or password')
+    else {
+        localStorage.setItem('student', JSON.stringify(data))
+        window.location.href = 'student-dashboard.html'
+    }
+}
+
+// Get student info
+export function getStudent() {
+    return JSON.parse(localStorage.getItem('student'))
+}
